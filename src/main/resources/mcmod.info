@@ -1,0 +1,16 @@
+[
+{
+  "modid": "simplemod",
+  "name": "Simple Mod by Wordolon",
+  "description": "Get some blocks and items in minecraft!",
+  "version": "0.02",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Wordolon"],
+  "credits": "Based on the Forge and FML platforms",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
