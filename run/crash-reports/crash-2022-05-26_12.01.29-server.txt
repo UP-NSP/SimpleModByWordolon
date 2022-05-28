@@ -1,0 +1,102 @@
+---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 5/26/22 12:01 PM
+Description: Exception in server tick loop
+
+com.google.common.util.concurrent.ExecutionError: java.lang.NoSuchMethodError: java.util.regex.Pattern.compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2215)
+	at com.google.common.cache.LocalCache.get(LocalCache.java:4154)
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:4158)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:5147)
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:5153)
+	at net.minecraft.world.storage.loot.LootTableManager.getLootTableFromLocation(LootTableManager.java:40)
+	at net.minecraft.world.storage.loot.LootTableManager.reloadLootTables(LootTableManager.java:49)
+	at net.minecraft.world.storage.loot.LootTableManager.<init>(LootTableManager.java:35)
+	at net.minecraft.world.WorldServer.init(WorldServer.java:161)
+	at net.minecraft.server.integrated.IntegratedServer.loadAllWorlds(IntegratedServer.java:123)
+	at net.minecraft.server.integrated.IntegratedServer.init(IntegratedServer.java:160)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:552)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.NoSuchMethodError: java.util.regex.Pattern.compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
+	at net.minecraft.nbt.JsonToNBT.<clinit>(JsonToNBT.java:16)
+	at net.minecraft.world.storage.loot.functions.SetNBT$Serializer.deserialize(SetNBT.java:60)
+	at net.minecraft.world.storage.loot.functions.SetNBT$Serializer.deserialize(SetNBT.java:44)
+	at net.minecraft.world.storage.loot.functions.LootFunctionManager$Serializer.deserialize(LootFunctionManager.java:101)
+	at net.minecraft.world.storage.loot.functions.LootFunctionManager$Serializer.deserialize(LootFunctionManager.java:84)
+	at com.google.gson.internal.bind.TreeTypeAdapter.read(TreeTypeAdapter.java:69)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:41)
+	at com.google.gson.internal.bind.ArrayTypeAdapter.read(ArrayTypeAdapter.java:72)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	at com.google.gson.Gson.fromJson(Gson.java:952)
+	at com.google.gson.internal.bind.TreeTypeAdapter$GsonContextImpl.deserialize(TreeTypeAdapter.java:162)
+	at net.minecraft.util.JsonUtils.deserializeClass(JsonUtils.java:359)
+	at net.minecraft.util.JsonUtils.deserializeClass(JsonUtils.java:371)
+	at net.minecraft.world.storage.loot.LootEntryItem.deserialize(LootEntryItem.java:88)
+	at net.minecraft.world.storage.loot.LootEntry$Serializer.deserialize(LootEntry.java:72)
+	at net.minecraft.world.storage.loot.LootEntry$Serializer.deserialize(LootEntry.java:48)
+	at com.google.gson.internal.bind.TreeTypeAdapter.read(TreeTypeAdapter.java:69)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:41)
+	at com.google.gson.internal.bind.ArrayTypeAdapter.read(ArrayTypeAdapter.java:72)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	at com.google.gson.Gson.fromJson(Gson.java:952)
+	at com.google.gson.internal.bind.TreeTypeAdapter$GsonContextImpl.deserialize(TreeTypeAdapter.java:162)
+	at net.minecraft.util.JsonUtils.deserializeClass(JsonUtils.java:359)
+	at net.minecraft.util.JsonUtils.deserializeClass(JsonUtils.java:371)
+	at net.minecraft.world.storage.loot.LootPool$Serializer.deserialize(LootPool.java:153)
+	at net.minecraft.world.storage.loot.LootPool$Serializer.deserialize(LootPool.java:147)
+	at com.google.gson.internal.bind.TreeTypeAdapter.read(TreeTypeAdapter.java:69)
+	at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:41)
+	at com.google.gson.internal.bind.ArrayTypeAdapter.read(ArrayTypeAdapter.java:72)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	at com.google.gson.Gson.fromJson(Gson.java:952)
+	at com.google.gson.internal.bind.TreeTypeAdapter$GsonContextImpl.deserialize(TreeTypeAdapter.java:162)
+	at net.minecraft.util.JsonUtils.deserializeClass(JsonUtils.java:359)
+	at net.minecraft.util.JsonUtils.deserializeClass(JsonUtils.java:381)
+	at net.minecraft.world.storage.loot.LootTable$Serializer.deserialize(LootTable.java:210)
+	at net.minecraft.world.storage.loot.LootTable$Serializer.deserialize(LootTable.java:205)
+	at com.google.gson.internal.bind.TreeTypeAdapter.read(TreeTypeAdapter.java:69)
+	at com.google.gson.Gson.fromJson(Gson.java:887)
+	at com.google.gson.Gson.fromJson(Gson.java:852)
+	at com.google.gson.Gson.fromJson(Gson.java:801)
+	at com.google.gson.Gson.fromJson(Gson.java:773)
+	at net.minecraftforge.common.ForgeHooks.loadLootTable(ForgeHooks.java:1164)
+	at net.minecraft.world.storage.loot.LootTableManager$Loader.loadBuiltinLootTable(LootTableManager.java:156)
+	at net.minecraft.world.storage.loot.LootTableManager$Loader.load(LootTableManager.java:72)
+	at net.minecraft.world.storage.loot.LootTableManager$Loader.load(LootTableManager.java:53)
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3716)
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2424)
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2298)
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2211)
+	... 12 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_172, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 696740936 bytes (664 MB) / 1038876672 bytes (990 MB) up to 1038876672 bytes (990 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.4.2705 5 mods loaded, 5 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State   | ID        | Version      | Source                           | Signature |
+	|:------- |:--------- |:------------ |:-------------------------------- |:--------- |
+	| UCHIJAA | minecraft | 1.12.2       | minecraft.jar                    | None      |
+	| UCHIJAA | mcp       | 9.42         | minecraft.jar                    | None      |
+	| UCHIJAA | FML       | 8.0.99.99    | forgeSrc-1.12.2-14.23.4.2705.jar | None      |
+	| UCHIJAA | forge     | 14.23.4.2705 | forgeSrc-1.12.2-14.23.4.2705.jar | None      |
+	| UCHIJAA | simplemod | alpha 0.01   | bin                              | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 0 / 8; []
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
